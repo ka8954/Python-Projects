@@ -1,0 +1,17 @@
+import time
+import math
+import random
+from plyer import notification
+
+def otpgenerator():
+digi = "0123456789"
+otp = ""
+for i in range(4):
+otp += digi[math.floor(random.random() * 10)]
+return otp
+
+if __name__=="__main__":
+while True:
+x=otpgenerator()
+notification.notify(title="Your OTP is", message=x,timeout=10)
+time.sleep(180)
