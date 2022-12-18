@@ -1,0 +1,19 @@
+import random
+import math
+from twilio.rest import Client
+
+digi = "0123456789"
+otp = ""
+for i in range(4):
+otp += digi[math.floor(random.random() * 10)]
+
+account_sid = "ACc2f3f6802edd4012d62417c99780d044"
+
+auth_token = "fefa9b5a13908612bd7ec2e97590a30c"
+client=Client(account_sid,auth_token)
+
+msg=client.messages.create(
+body=f"Dear User Your OTP is {otp}",
+from_= "+19035825588",
+to = "Your Mobile number"
+)
